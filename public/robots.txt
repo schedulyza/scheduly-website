@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://scheduly.co.za/sitemap.xml
