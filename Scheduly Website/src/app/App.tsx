@@ -12,7 +12,7 @@ import {
 import { ContactPage } from './components/ContactPage';
 import { PrivacyPolicyPage } from './components/PrivacyPolicyPage';
 import { TermsOfServicePage } from './components/TermsOfServicePage';
-import logoImage from 'figma:asset/7e2e2264172c9e1f62925b0e38012bcf3b847be8.png';
+import logoImage from "../assets/logo.png";
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<'home' | 'contact' | 'privacy' | 'terms'>('home');
