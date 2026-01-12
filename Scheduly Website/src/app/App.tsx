@@ -12,7 +12,7 @@ import {
 import { ContactPage } from './components/ContactPage';
 import { PrivacyPolicyPage } from './components/PrivacyPolicyPage';
 import { TermsOfServicePage } from './components/TermsOfServicePage';
-import logoImage from "../assets/logo.png";
+import logoImage from "../assets/Logo BG removed.png";
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<'home' | 'contact' | 'privacy' | 'terms'>('home');
