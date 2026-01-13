@@ -9,8 +9,6 @@ import {
   ChevronDown,
   ChevronUp,
 } from "lucide-react";
-import { Link } from "react-router-dom";
-import logoImage from "../../assets/Logo BG removed.png";
 
 export default function HomePage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -24,76 +22,8 @@ export default function HomePage() {
     if (pricingSection) pricingSection.scrollIntoView({ behavior: "smooth" });
   };
 
-  const Header = () => (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-[#0a0e27]/80 backdrop-blur-xl border-b border-white/5">
-      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-          <img src={logoImage} alt="Scheduly Logo" className="w-8 h-8 rounded-lg" />
-          <span className="font-bold text-xl">Scheduly</span>
-        </Link>
-
-        <nav className="hidden md:flex items-center gap-8">
-          <Link to="/" className="text-white transition-colors">
-            Home
-          </Link>
-          <Link to="/contact" className="text-slate-300 hover:text-white transition-colors">
-            Contact
-          </Link>
-        </nav>
-
-        <a
-          href="https://wandile-nexora.app.n8n.cloud/webhook/choose"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="px-6 py-2.5 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 transition-all shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40"
-        >
-          Start Free Trial
-        </a>
-      </div>
-    </header>
-  );
-
-  const Footer = () => (
-    <footer className="border-t border-white/5 py-12 px-6">
-      <div className="max-w-6xl mx-auto">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-          <div className="flex flex-col items-center md:items-start gap-3">
-            <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-              <img src={logoImage} alt="Scheduly Logo" className="w-8 h-8 rounded-lg" />
-              <span className="font-bold text-xl">Scheduly</span>
-            </Link>
-            <p className="text-slate-400 text-sm">WhatsApp-first scheduling for modern service teams</p>
-          </div>
-
-          <div className="flex flex-col items-center md:items-end gap-4">
-            <a
-              href="mailto:admin@scheduly.co.za"
-              className="text-slate-400 hover:text-white transition-colors"
-            >
-              admin@scheduly.co.za
-            </a>
-            <div className="flex items-center gap-6">
-              <Link to="/privacy" className="text-sm text-slate-400 hover:text-white transition-colors">
-                Privacy Policy
-              </Link>
-              <Link to="/terms" className="text-sm text-slate-400 hover:text-white transition-colors">
-                Terms of Service
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-8 pt-8 border-t border-white/5 text-center text-sm text-slate-500">
-          © 2026 Scheduly. All rights reserved.
-        </div>
-      </div>
-    </footer>
-  );
-
   return (
-    <div className="min-h-screen bg-[#0a0e27] text-white" style={{ fontFamily: "Inter, sans-serif" }}>
-      <Header />
-
+    <>
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 px-6 overflow-hidden">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl" />
@@ -230,30 +160,10 @@ export default function HomePage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              {
-                icon: MessageCircle,
-                step: "01",
-                title: "Customer Messages",
-                description: "Your client sends a WhatsApp message requesting an appointment",
-              },
-              {
-                icon: Zap,
-                step: "02",
-                title: "Smart Processing",
-                description: "Scheduly understands the request and collects booking details",
-              },
-              {
-                icon: CheckCircle2,
-                step: "03",
-                title: "Auto-Confirmation",
-                description: "Booking is confirmed automatically with all details clarified",
-              },
-              {
-                icon: Calendar,
-                step: "04",
-                title: "Calendar Sync",
-                description: "Appointment added to your calendar with automatic reminders",
-              },
+              { icon: MessageCircle, step: "01", title: "Customer Messages", description: "Your client sends a WhatsApp message requesting an appointment" },
+              { icon: Zap, step: "02", title: "Smart Processing", description: "Scheduly understands the request and collects booking details" },
+              { icon: CheckCircle2, step: "03", title: "Auto-Confirmation", description: "Booking is confirmed automatically with all details clarified" },
+              { icon: Calendar, step: "04", title: "Calendar Sync", description: "Appointment added to your calendar with automatic reminders" },
             ].map((item, index) => (
               <div key={index} className="relative group">
                 <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/5 to-blue-500/5 rounded-2xl blur opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -284,36 +194,12 @@ export default function HomePage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              {
-                icon: MessageCircle,
-                title: "WhatsApp-First Booking",
-                description: "Customers book directly via WhatsApp - no app downloads required",
-              },
-              {
-                icon: Calendar,
-                title: "Real-Time Calendar Sync",
-                description: "Seamlessly syncs with Google Calendar and Outlook in real-time",
-              },
-              {
-                icon: Clock,
-                title: "Smart Reminders",
-                description: "Automatic follow-ups and reminders to reduce no-shows",
-              },
-              {
-                icon: CheckCircle2,
-                title: "Automatic Confirmations",
-                description: "Instant booking confirmations sent to both you and your clients",
-              },
-              {
-                icon: Smartphone,
-                title: "No App Downloads",
-                description: "Works entirely through WhatsApp - familiar and convenient",
-              },
-              {
-                icon: Zap,
-                title: "Setup in Minutes",
-                description: "Get started quickly with our simple onboarding process",
-              },
+              { icon: MessageCircle, title: "WhatsApp-First Booking", description: "Customers book directly via WhatsApp - no app downloads required" },
+              { icon: Calendar, title: "Real-Time Calendar Sync", description: "Seamlessly syncs with Google Calendar and Outlook in real-time" },
+              { icon: Clock, title: "Smart Reminders", description: "Automatic follow-ups and reminders to reduce no-shows" },
+              { icon: CheckCircle2, title: "Automatic Confirmations", description: "Instant booking confirmations sent to both you and your clients" },
+              { icon: Smartphone, title: "No App Downloads", description: "Works entirely through WhatsApp - familiar and convenient" },
+              { icon: Zap, title: "Setup in Minutes", description: "Get started quickly with our simple onboarding process" },
             ].map((feature, index) => (
               <div key={index} className="group relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-2xl blur opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -476,8 +362,6 @@ export default function HomePage() {
           </a>
         </div>
       </section>
-
-      <Footer />
-    </div>
+    </>
   );
 }
