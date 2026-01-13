@@ -1,118 +1,89 @@
-import { useEffect, useState } from "react";
-import { ContactPage } from "./components/ContactPage";
-import { PrivacyPolicyPage } from "./components/PrivacyPolicyPage";
-import { TermsOfServicePage } from "./components/TermsOfServicePage";
-import HomePage from "./pages/HomePage";
+import { Outlet, Link } from "react-router-dom";
 import logoImage from "../assets/Logo BG removed.png";
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState<"home" | "contact" | "privacy" | "terms">("home");
+  return (
+    <div
+      className="min-h-screen bg-[#0a0e27] text-white"
+      style={{ fontFamily: "Inter, sans-serif" }}
+    >
+      {/* Header */}
+      <header className="fixed top-0 left-0 right-0 z-50 bg-[#0a0e27]/80 backdrop-blur-xl border-b border-white/5">
+        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+          <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+            <img src={logoImage} alt="Scheduly Logo" className="w-8 h-8 rounded-lg" />
+            <span className="font-bold text-xl">Scheduly</span>
+          </Link>
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [currentPage]);
+          <nav className="hidden md:flex items-center gap-8">
+            <Link to="/" className="text-slate-300 hover:text-white transition-colors">
+              Home
+            </Link>
+            <Link to="/contact" className="text-slate-300 hover:text-white transition-colors">
+              Contact
+            </Link>
+          </nav>
 
-  const Header = () => (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-[#0a0e27]/80 backdrop-blur-xl border-b border-white/5">
-      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        <button
-          onClick={() => setCurrentPage("home")}
-          className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity"
-        >
-          <img src={logoImage} alt="Scheduly Logo" className="w-8 h-8 rounded-lg" />
-          <span className="font-bold text-xl">Scheduly</span>
-        </button>
-
-        <nav className="hidden md:flex items-center gap-8">
-          <button
-            onClick={() => setCurrentPage("home")}
-            className={`transition-colors ${
-              currentPage === "home" ? "text-white" : "text-slate-300 hover:text-white"
-            }`}
+          <a
+            href="https://wandile-nexora.app.n8n.cloud/webhook/choose"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-6 py-2.5 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 transition-all shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40"
           >
-            Home
-          </button>
+            Start Free Trial
+          </a>
+        </div>
+      </header>
 
-          <button
-            onClick={() => setCurrentPage("contact")}
-            className={`transition-colors ${
-              currentPage === "contact" ? "text-white" : "text-slate-300 hover:text-white"
-            }`}
-          >
-            Contact
-          </button>
-        </nav>
+      {/* Page content */}
+      <main className="pt-16">
+        <Outlet />
+      </main>
 
-        <a
-          href="https://wandile-nexora.app.n8n.cloud/webhook/choose"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="px-6 py-2.5 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 transition-all shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40"
-        >
-          Start Free Trial
-        </a>
-      </div>
-    </header>
-  );
+      {/* Footer */}
+      <footer className="border-t border-white/5 py-12 px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+            <div className="flex flex-col items-center md:items-start gap-3">
+              <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+                <img src={logoImage} alt="Scheduly Logo" className="w-8 h-8 rounded-lg" />
+                <span className="font-bold text-xl">Scheduly</span>
+              </Link>
+              <p className="text-slate-400 text-sm">
+                WhatsApp-first scheduling for modern service teams
+              </p>
+            </div>
 
-  const Footer = () => (
-    <footer className="border-t border-white/5 py-12 px-6">
-      <div className="max-w-6xl mx-auto">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-          <div className="flex flex-col items-center md:items-start gap-3">
-            <button
-              onClick={() => setCurrentPage("home")}
-              className="flex items-center gap-2 hover:opacity-80 transition-opacity"
-            >
-              <img src={logoImage} alt="Scheduly Logo" className="w-8 h-8 rounded-lg" />
-              <span className="font-bold text-xl">Scheduly</span>
-            </button>
-            <p className="text-slate-400 text-sm">WhatsApp-first scheduling for modern service teams</p>
-          </div>
-
-          <div className="flex flex-col items-center md:items-end gap-4">
-            <a href="mailto:admin@scheduly.co.za" className="text-slate-400 hover:text-white transition-colors">
-              admin@scheduly.co.za
-            </a>
-
-            <div className="flex items-center gap-6">
-              <button
-                onClick={() => setCurrentPage("privacy")}
-                className="text-sm text-slate-400 hover:text-white transition-colors"
+            <div className="flex flex-col items-center md:items-end gap-4">
+              <a
+                href="mailto:admin@scheduly.co.za"
+                className="text-slate-400 hover:text-white transition-colors"
               >
-                Privacy Policy
-              </button>
-              <button
-                onClick={() => setCurrentPage("terms")}
-                className="text-sm text-slate-400 hover:text-white transition-colors"
-              >
-                Terms of Service
-              </button>
+                admin@scheduly.co.za
+              </a>
+
+              <div className="flex items-center gap-6">
+                <Link
+                  to="/privacy"
+                  className="text-sm text-slate-400 hover:text-white transition-colors"
+                >
+                  Privacy Policy
+                </Link>
+                <Link
+                  to="/terms"
+                  className="text-sm text-slate-400 hover:text-white transition-colors"
+                >
+                  Terms of Service
+                </Link>
+              </div>
             </div>
           </div>
+
+          <div className="mt-8 pt-8 border-t border-white/5 text-center text-sm text-slate-500">
+            © 2026 Scheduly. All rights reserved.
+          </div>
         </div>
-
-        <div className="mt-8 pt-8 border-t border-white/5 text-center text-sm text-slate-500">
-          © 2026 Scheduly. All rights reserved.
-        </div>
-      </div>
-    </footer>
-  );
-
-  const PageContent = () => {
-    if (currentPage === "contact") return <ContactPage onNavigate={(page) => setCurrentPage(page)} />;
-    if (currentPage === "privacy") return <PrivacyPolicyPage />;
-    if (currentPage === "terms") return <TermsOfServicePage />;
-    return <HomePage />;
-  };
-
-  return (
-    <div className="min-h-screen bg-[#0a0e27] text-white" style={{ fontFamily: "Inter, sans-serif" }}>
-      <Header />
-      <main className="pt-16">
-        <PageContent />
-      </main>
-      <Footer />
+      </footer>
     </div>
   );
 }
