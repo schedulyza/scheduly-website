@@ -8,7 +8,7 @@ export default function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
-      <Route path="/contact" element={<ContactPage />} />
+      <Route path="/contact" element={<ContactPage onNavigate={() => {}} />} />
       <Route path="/privacy" element={<PrivacyPolicyPage />} />
       <Route path="/terms" element={<TermsOfServicePage />} />
       <Route path="*" element={<Navigate to="/" replace />} />
