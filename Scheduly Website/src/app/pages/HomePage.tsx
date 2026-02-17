@@ -52,7 +52,7 @@ export default function HomePage() {
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
-                href="https://wandile-nexora.app.n8n.cloud/webhook/choose"
+                href="https://wandile-nexora.app.n8n.cloud/webhook/trial"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-8 py-4 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 transition-all shadow-lg shadow-cyan-500/30 hover:shadow-cyan-500/50 font-semibold"
@@ -261,7 +261,7 @@ export default function HomePage() {
                 </ul>
 
                 <a
-                  href="https://wandile-nexora.app.n8n.cloud/webhook/choose"
+                  href="https://wandile-nexora.app.n8n.cloud/webhook/trial"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block w-full px-8 py-4 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 transition-all shadow-lg shadow-cyan-500/30 hover:shadow-cyan-500/50 font-semibold text-center"
@@ -353,7 +353,7 @@ export default function HomePage() {
             Join modern service teams using Scheduly to turn WhatsApp chats into confirmed bookings. Start your free trial today.
           </p>
           <a
-            href="https://wandile-nexora.app.n8n.cloud/webhook/choose"
+            href="https://wandile-nexora.app.n8n.cloud/webhook/trial"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block px-8 py-4 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 transition-all shadow-lg shadow-cyan-500/30 hover:shadow-cyan-500/50 font-semibold text-lg"
