@@ -10,6 +10,8 @@ import {
   ChevronUp,
 } from "lucide-react";
 
+const SUBSCRIBE_URL = "https://wandile-nexora.app.n8n.cloud/webhook/pay";
+
 export default function HomePage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
@@ -260,14 +262,24 @@ export default function HomePage() {
                   ))}
                 </ul>
 
-                <a
-                  href="https://wandile-nexora.app.n8n.cloud/webhook/choose"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block w-full px-8 py-4 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 transition-all shadow-lg shadow-cyan-500/30 hover:shadow-cyan-500/50 font-semibold text-center"
-                >
-                  Start Free Trial
-                </a>
+                <div className="flex flex-col gap-3 sm:flex-row">
+                  <a
+                    href="https://wandile-nexora.app.n8n.cloud/webhook/choose"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full px-8 py-4 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 transition-all shadow-lg shadow-cyan-500/30 hover:shadow-cyan-500/50 font-semibold text-center"
+                  >
+                    Start Free Trial
+                  </a>
+                  <a
+                    href={SUBSCRIBE_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full px-8 py-4 rounded-full border-2 border-white/15 hover:border-white/30 transition-all font-semibold text-center text-slate-100"
+                  >
+                    Subscribe
+                  </a>
+                </div>
               </div>
             </div>
           </div>

@@ -212,12 +212,13 @@ export function ContactPage({ onNavigate }: ContactPageProps) {
                   {/* Phone Number */}
                   <div>
                     <label htmlFor="phone" className="block text-sm font-medium mb-2">
-                      Phone Number <span className="text-slate-500">(optional)</span>
+                      Phone Number <span className="text-cyan-400">*</span>
                     </label>
                     <input
                       type="tel"
                       id="phone"
                       name="phone"
+                      required
                       value={formData.phone}
                       onChange={handleChange}
                       className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:border-cyan-500/50 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 transition-all text-white placeholder-slate-500"
